@@ -58,7 +58,8 @@ import           Database.Beam.Backend.SQL (HasSqlValueSyntax (..), IsSql92Aggre
                                             IsSql92UpdateSyntax (..),
                                             IsSql99ConcatExpressionSyntax (..),
                                             SqlNull (..))
-import           Database.MySQL.Base (Query (..))
+import           Database.MySQL.Base (Query (..), fromQuery)
+import           Database.MySQL.Protocol.Escape (escapeText)
 import           Fmt (build, unlinesF, whenF, (+|), (|+))
 
 -- General syntax type
@@ -193,7 +194,7 @@ instance HasSqlValueSyntax MysqlSyntax ByteString where
   sqlValueSyntax = quoteWrap . textSyntax . decodeUtf8
 
 instance HasSqlValueSyntax MysqlSyntax Text where
-  sqlValueSyntax = quoteWrap . textSyntax
+  sqlValueSyntax = quoteWrap . textSyntax . escapeText
 
 instance HasSqlValueSyntax MysqlSyntax Day where
   sqlValueSyntax =
@@ -588,5 +589,3 @@ joinOp joinType l r mOn = l <> " " <> joinType <> " " <> r <> fold mOn
 
 tableOp :: (Semigroup s, IsString s) => s -> s -> s -> s
 tableOp op l r = l <> " " <> op <> " " <> r
-
-
