@@ -112,7 +112,7 @@ library
     Database.Beam.MySQL.Utils
 
   build-depends:
-    , aeson            ^>=1.4.7.1
+    , aeson            >=1.4.7.1
     , binary           ^>=0.8.7.0
     , bytestring       ^>=0.10.10.0
     , fmt              ^>=0.6.1.2
