@@ -1,10 +1,14 @@
 # Changelog
 
+## 1.3.0.1
+
+* Add logging into `insertRowReturning`
+
 ## 1.3.0.0
 
 * Reduce the amount of required CPP.
 * Modified `ColumnDecodeError` to indicate the name of the column that caused
-  the error, rather than just the index. 
+  the error, rather than just the index.
 
 ## 1.2.3.1
 
@@ -41,7 +45,7 @@
 ## 1.2.1.0
 
 * Added a wrapper `ViaJson`, plus instances, to aid unwrapping values packed
-  into JSON. 
+  into JSON.
 * Added a wrapper `FakeUTC`, plus instances, to assist with use of `UTCTime` in
   cases where you know that the database is zoned to UTC.
 * Fix some rendering issues.
@@ -60,7 +64,7 @@
 * Improve error messages
 * Rewrite benchmarks using Criterion
 * Ensure proper escaping of `Text` values
-* Add `dumpInsertSQL`, `dumpSelectSQL`, `dumpDeleteSQL`, `dumpUpdateSQL` for 
+* Add `dumpInsertSQL`, `dumpSelectSQL`, `dumpDeleteSQL`, `dumpUpdateSQL` for
   debugging SQL query generator output
 * Restructure internal SQL AST representation
 * Many more tests
