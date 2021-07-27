@@ -9,7 +9,7 @@ module Database.Beam.MySQL.Extra where
 import           Control.Exception.Safe (bracket, throw)
 import           Control.Monad (when)
 import           Control.Monad.IO.Class (liftIO)
-import           Control.Monad.Reader (asks)
+import           Control.Monad.Reader (MonadReader (ask), asks)
 import           Data.Foldable (traverse_)
 import           Data.Functor.Identity (Identity)
 import           Data.Kind (Type)
@@ -208,14 +208,19 @@ insertRowReturning :: forall (table :: (Type -> Type) -> Type) .
   TableRowExpression ->
   Query ->
   MySQLM (Maybe (table Identity))
-insertRowReturning ins (TableRowExpression v) query = do
+insertRowReturning ins (TableRowExpression v) query@(Query inner) = do
   -- Ensure that all of our inserted values come from pure expressions
   traverse_ (analyzeExpr ins) v
   -- Collect a vector of column names and corresponding values. This _has_ to
   -- retain the order exactly as specified by the insert, or we risk breaking
   -- subsequent queries.
   let fieldVals = zip ins.columns v
-  conn <- getConnection
+  env <- MySQLM ask
+  conn <- case env of
+    DebugEnv dbg conn -> do
+      let textual = toStrict . decodeUtf8 $ inner
+      liftIO (dbg textual) >> pure conn
+    ReleaseEnv conn -> pure conn
   -- Get the names of all primary key columns in the table.
   pkColNames <- getPkCols conn ins.tableName.name
   -- If we don't find anything, abort.
