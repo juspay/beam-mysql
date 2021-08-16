@@ -493,7 +493,7 @@ renderInsert' ins = do
     "INSERT INTO " <>
     tableName' <>
     " " <>
-    (bracketWrap . intersperse ", " . toList . fmap textUtf8 $ ins.columns) <>
+    (bracketWrap . intersperse ", " . toList . fmap (backtickWrap . textUtf8) $ ins.columns) <>
     insertValues'
 
 renderInsertValues :: MySQLInsertValuesSyntax -> RenderM Builder
