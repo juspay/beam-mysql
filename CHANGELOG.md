@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.3.0.2
+
+* Wrap field's names into backticks in the `renderInsert'`
+
 ## 1.3.0.1
 
 * Add logging into `insertRowReturning`
