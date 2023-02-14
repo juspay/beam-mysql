@@ -1,24 +1,5 @@
 {
   "nodes": {
-    "beam": {
-      "inputs": {
-        "euler-build": [
-          "euler-build"
-        ]
-      },
-      "locked": {
-        "lastModified": 1608124323,
-        "narHash": "sha256-5+FseBBqkpoRP+e5Yo1hZlUuxT/Elh7JQjcHSbMZ/DQ=",
-        "owner": "juspay",
-        "repo": "beam",
-        "rev": "d36b29726570b6c5d228bee44d169282fe99ebdb",
-        "type": "github"
-      },
-      "original": {
-        "id": "beam",
-        "type": "indirect"
-      }
-    },
     "euler-build": {
       "inputs": {
         "flake-utils": "flake-utils",
@@ -26,11 +7,11 @@
         "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "lastModified": 1611066903,
-        "narHash": "sha256-W6TW3VUboJeEuanClxs/ZK59Lxavq4toO9H5VlLdXTw=",
-        "ref": "master",
-        "rev": "aa20a46b6ae5d638c23fa009fb1dd9b07727ffa2",
-        "revCount": 27,
+        "lastModified": 1675855074,
+        "narHash": "sha256-/U2CScTvPmJqAe9NFdNaBsVHx9Yex0vCS9MjKYiPZ+E=",
+        "ref": "ghc924",
+        "rev": "9943d5f7013ce32efcc9920773b204c6fcf0ebc8",
+        "revCount": 45,
         "type": "git",
         "url": "ssh://git@bitbucket.org/juspay/euler-build"
       },
@@ -75,23 +56,22 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1607690238,
-        "narHash": "sha256-9QFXxj6pjmHr+950E3/gXo9cz50l0AbFCHZR5eixkXw=",
+        "lastModified": 1675698036,
+        "narHash": "sha256-BgsQkQewdlQi8gapJN4phpxkI/FCE/2sORBaFcYbp/A=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "8006772a054ce57ca18c5955dcd6ec9a62577473",
+        "rev": "1046c7b92e908a1202c0f1ba3fc21d19e1cf1b62",
         "type": "github"
       },
       "original": {
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "8006772a054ce57ca18c5955dcd6ec9a62577473",
+        "rev": "1046c7b92e908a1202c0f1ba3fc21d19e1cf1b62",
         "type": "github"
       }
     },
     "root": {
       "inputs": {
-        "beam": "beam",
         "euler-build": "euler-build"
       }
     },
