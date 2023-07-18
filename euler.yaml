@@ -13,8 +13,8 @@ dependencies:
     branch: master
     revision: aa20a46b6ae5d638c23fa009fb1dd9b07727ffa2
   beam:
-    branch: master
-    revision: 4bfeb46746212c6b54983844a3acd37853430065
+    branch: Delete-with-limit-support
+    revision: a26730565cdaa7c5a8c91b2bc401f30eb10d4748
 
 overrides:
   record-dot-preprocessor:

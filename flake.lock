@@ -7,11 +7,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1686732869,
-        "narHash": "sha256-NJ1CfZCboTZ3MEsxp57PoEz/X6tx8CEK/fz+R+JAbjk=",
+        "lastModified": 1689657701,
+        "narHash": "sha256-3o7cKr/n0JkQyza3T1vaUOBn6G3WgGQTrjgq50tshw4=",
         "owner": "juspay",
         "repo": "beam",
-        "rev": "4bfeb46746212c6b54983844a3acd37853430065",
+        "rev": "a26730565cdaa7c5a8c91b2bc401f30eb10d4748",
         "type": "github"
       },
       "original": {
