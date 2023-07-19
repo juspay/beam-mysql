@@ -10,7 +10,7 @@ import           Database.Beam.MySQL.Syntax.Select (MySQLExpressionSyntax,
 data MySQLDelete = DeleteStmt {
   tableName :: {-# UNPACK #-} !MySQLTableNameSyntax,
   wher      :: !(Maybe MySQLExpressionSyntax),
-  limit      :: !(Maybe Integer)
+  limit      :: !(Maybe Int)
   }
   deriving stock (Eq, Show)
 
@@ -24,7 +24,7 @@ instance IsSql92DeleteSyntax MySQLDelete where
     MySQLTableNameSyntax ->
     Maybe Text ->
     Maybe MySQLExpressionSyntax ->
-    Maybe Integer ->
+    Maybe Int ->
     MySQLDelete
   deleteStmt tableName' _ wher' limit' =
     DeleteStmt tableName' wher' limit'
