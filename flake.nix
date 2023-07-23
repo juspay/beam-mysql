@@ -5,7 +5,8 @@
   inputs = {
     # Laziness of nix allows us to be lazy here and avoid resolving deps
     # The downside is that most of this .follows are redundant
-    
+    euler-build.inputs.beam.follows = "beam";
+    beam.inputs.euler-build.follows = "euler-build";
   };
 
   outputs = flakeInputs@{ self, euler-build, ... }:

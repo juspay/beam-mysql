@@ -20,6 +20,18 @@ let
   };
   word24-path = word24-repo;
 
+  bytestring-lexing-repo = builtins.fetchTarball {
+    url = "https://github.com/juspay/bytestring-lexing/archive/0a46db1139011736687cb50bbd3877d223bcb737.tar.gz";
+    sha256 = "1jrwhlp8xs4m21xfr843278j3i7h4sxyjpq67l6lzc36pqan9zlz";
+  };
+  bytestring-lexing-path = bytestring-lexing-repo;
+
+  mysql-haskell-repo = builtins.fetchTarball {
+    url = "https://github.com/juspay/mysql-haskell/archive/788022d65538db422b02ecc0be138b862d2e5cee.tar.gz";
+    sha256 = "030qq1hgh15zkwa6j6x568d248iyfaw5idj2hh2mvb7j8xd1l4lv";
+  };
+  mysql-haskell-path = mysql-haskell-repo;
+
   isDarwin = super.stdenv.isDarwin;
 linuxBuildTools = with super; lib.optionals (!isDarwin) [ mysql80 numactl ];
 dontCheckDarwin =
@@ -30,14 +42,24 @@ super.eulerBuild.mkEulerHaskellOverlay self super
     word24 = self.eulerBuild.fastBuildExternal {
       drv = super.haskell.lib.unmarkBroken (hself.callCabal2nix "word24" word24-path { });
     };
-    wire-streams = self.eulerBuild.fastBuildExternal {
-      drv = self.haskell.lib.doJailbreak (super.haskell.lib.unmarkBroken (hsuper.wire-streams));
+    record-dot-preprocessor = self.eulerBuild.fastBuildExternal {
+      drv = super.haskell.lib.unmarkBroken (hself.callHackageDirect {
+        pkg = "record-dot-preprocessor";
+        ver = "0.2.15";
+        sha256 = "1kah6infl4nyzabd63g5cllcx5rg0vsp6shml435bvam9yhvbqg5";
+      } { });
+    };
+    bytestring-lexing = self.eulerBuild.fastBuildExternal {
+      drv = self.haskell.lib.doJailbreak (super.haskell.lib.unmarkBroken (hself.callCabal2nix "bytestring-lexing" bytestring-lexing-path { }));
+    };
+    mysql-haskell = self.eulerBuild.fastBuildExternal {
+      drv = self.haskell.lib.doJailbreak (super.haskell.lib.unmarkBroken (hself.callCabal2nix "mysql-haskell" mysql-haskell-path { }));
     };
     binary-parsers = self.eulerBuild.fastBuildExternal {
       drv = self.haskell.lib.doJailbreak (super.haskell.lib.unmarkBroken (hsuper.binary-parsers));
     };
-    mysql-haskell = self.eulerBuild.fastBuildExternal {
-      drv = self.haskell.lib.doJailbreak (super.haskell.lib.unmarkBroken (hsuper.mysql-haskell));
+    wire-streams = self.eulerBuild.fastBuildExternal {
+      drv = self.haskell.lib.doJailbreak (super.haskell.lib.unmarkBroken (hsuper.wire-streams));
     };
     
     beam-mysql = dontCheckDarwin (super.haskell.lib.addBuildTools (self.eulerBuild.fastBuild {

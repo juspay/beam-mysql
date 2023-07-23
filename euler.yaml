@@ -6,12 +6,15 @@ allowed-paths:
 - pool
 - beam-mysql.cabal
 - LICENSE
-allow-newer: true
+
 
 dependencies:
   euler-build:
     branch: ghc924
     revision: 9943d5f7013ce32efcc9920773b204c6fcf0ebc8
+  beam:
+    branch: master
+    revision: 53c98520169472d288bc987a4b7731966348de0b
 
 overrides:
   word24:
@@ -21,11 +24,28 @@ overrides:
     source: github
     commit: 445f791e35ddc8098f05879dbcd07c41b115cb39
     sha256: 19xm3w8f7kyr6g5rhnywis2piwjzc4wjfspsjrp91qq99gbx4zjb
-  wire-streams:
+  record-dot-preprocessor:
+    version: 0.2.15
+    source: hackage
+    sha256: 1kah6infl4nyzabd63g5cllcx5rg0vsp6shml435bvam9yhvbqg5
+
+  bytestring-lexing:
+    source: github
+    owner: juspay
+    repo: bytestring-lexing
+    commit: 0a46db1139011736687cb50bbd3877d223bcb737
+    sha256: 1jrwhlp8xs4m21xfr843278j3i7h4sxyjpq67l6lzc36pqan9zlz
+    jailbreak: true
+  mysql-haskell:
+    source: github
+    owner: juspay
+    repo: mysql-haskell
+    commit: 788022d65538db422b02ecc0be138b862d2e5cee
+    sha256: 030qq1hgh15zkwa6j6x568d248iyfaw5idj2hh2mvb7j8xd1l4lv
     jailbreak: true
   binary-parsers:
     jailbreak: true
-  mysql-haskell:
+  wire-streams:
     jailbreak: true
 
 build-tools:
@@ -54,4 +74,5 @@ custom-nix:
       dontCheckDarwin (super.haskell.lib.addBuildTools (
     right: |-
       ) linuxBuildTools)
+
 
