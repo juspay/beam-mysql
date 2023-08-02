@@ -1,6 +1,7 @@
 -- Due to RDP plugin
 {-# OPTIONS_GHC -Wno-incomplete-record-updates #-}
 {-# LANGUAGE ScopedTypeVariables #-}
+{-# LANGUAGE TypeOperators #-}
 
 module Database.Beam.MySQL.Syntax.DataType where
 
