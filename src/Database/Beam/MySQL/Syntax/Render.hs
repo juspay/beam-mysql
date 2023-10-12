@@ -178,7 +178,7 @@ renderFrom fs = case fs of
     pure $ src <> hdr
   InnerJoin{} -> do
     (l, r, c) <- renderJoinParts fs.leftArg fs.rightArg fs.condition
-    pure $ l <> " JOIN " <> r <> fold c
+    pure $ l <> " JOIN " <> r <> " ON " <> fold c
   LeftJoin{}  -> do
     (l, r, c) <- renderJoinParts fs.leftArg fs.rightArg fs.condition
     pure $ l <> " LEFT JOIN " <> r <> fold c
