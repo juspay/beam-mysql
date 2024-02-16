@@ -11,16 +11,15 @@
         ]
       },
       "locked": {
-        "lastModified": 1693307537,
+        "lastModified": 1696055201,
         "narHash": "sha256-BIq3ZjZQWQ0w3zWA19zGBggiVVfnOzR5d4b7De0oVZY=",
-        "owner": "arjunkathuria",
+        "owner": "juspay",
         "repo": "beam",
-        "rev": "06bcc50997fdcfb87125bed252e888e5dd1e6d9c",
+        "rev": "c4f86057db76640245c3d1fde040176c53e9b9a3",
         "type": "github"
       },
       "original": {
-        "owner": "arjunkathuria",
-        "ref": "GHC-927-Upgrade",
+        "owner": "juspay",
         "repo": "beam",
         "type": "github"
       }
@@ -122,16 +121,15 @@
         "word24": "word24"
       },
       "locked": {
-        "lastModified": 1692868544,
+        "lastModified": 1696055302,
         "narHash": "sha256-UY9HRnqWXv5Ud6pfBa/fPNwjauDYpgzJoLcQb4NuH7I=",
-        "owner": "arjunkathuria",
+        "owner": "juspay",
         "repo": "mysql-haskell",
-        "rev": "2f4861667d19e84474700f32922c97af94f5dfc4",
+        "rev": "0c290a5ec4296e7f74d488cbdeb9f384dfb1f04d",
         "type": "github"
       },
       "original": {
-        "owner": "arjunkathuria",
-        "ref": "GHC-927",
+        "owner": "juspay",
         "repo": "mysql-haskell",
         "type": "github"
       }

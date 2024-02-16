@@ -7,13 +7,11 @@
     bytestring-lexing.url = "github:juspay/bytestring-lexing";
     bytestring-lexing.flake = false;
 
-    ## Use Juspay upstream after PR merged here https://github.com/juspay/mysql-haskell/pull/5
-    mysql-haskell.url = "github:arjunkathuria/mysql-haskell/GHC-927";
+    mysql-haskell.url = "github:juspay/mysql-haskell";
     mysql-haskell.inputs.nixpkgs.follows = "nixpkgs";
     mysql-haskell.inputs.haskell-flake.follows = "haskell-flake";
 
-    ## Use Juspay upstream after PR merged - https://github.com/juspay/beam/pull/21
-    beam.url = "github:arjunkathuria/beam/GHC-927-Upgrade";
+    beam.url = "github:juspay/beam";
     beam.inputs.haskell-flake.follows = "haskell-flake";
     beam.inputs.nixpkgs.follows = "nixpkgs";
 
