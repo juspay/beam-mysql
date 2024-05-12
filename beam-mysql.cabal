@@ -30,17 +30,18 @@ common common-lang
     -Wall -Wcompat -Wincomplete-record-updates
     -Wincomplete-uni-patterns -Wredundant-constraints -Werror
     -fplugin=RecordDotPreprocessor
+    -Wwarn=ambiguous-fields
 
   build-depends:
-    , base                     >=4.13     && <5
-    , beam-core                ^>=0.9.0.0
-    , generics-sop             ^>=0.5.1.0
-    , mysql-haskell            ^>=0.8.4.2
-    , record-dot-preprocessor  ^>=0.2.7
-    , record-hasfield          ^>=1.0
-    , safe-exceptions          ^>=0.1.7.0
-    , text                     ^>=1.2.4.0
-    , unordered-containers     ^>=0.2.10.0
+    , base                     <5
+    , beam-core
+    , generics-sop
+    , mysql-haskell
+    , record-dot-preprocessor
+    , record-hasfield
+    , safe-exceptions
+    , text
+    , unordered-containers
 
   default-extensions:
     DataKinds
@@ -70,7 +71,7 @@ common common-test
   build-depends:
     , beam-mysql
     , db
-    , tasty       ^>=1.4.1
+    , tasty
 
 -- Flags
 
@@ -132,22 +133,22 @@ library
       Database.Beam.MySQL.Utils
 
   build-depends:
-    , aeson            ^>=1.4.7.1 || ^>=1.5.0.0
-    , binary           ^>=0.8.7.0
-    , bytestring       ^>=0.10.10.0
-    , fmt              ^>=0.6.1.2
-    , free             ^>=5.1.3
-    , hashable         ^>=1.3.0.0
-    , int-cast         ^>=0.2.0.0
-    , io-streams       ^>=1.5.1.0
-    , mason            ^>=0.2.3
-    , mtl              ^>=2.2.2
-    , mysql-haskell    ^>=0.8.4.2
-    , safe-exceptions  ^>=0.1.7.0
-    , scientific       ^>=0.3.6.2
-    , text             ^>=1.2.4.0
-    , time             ^>=1.9.3
-    , vector           ^>=0.12.1.2
+    , aeson
+    , binary
+    , bytestring
+    , fmt
+    , free
+    , hashable > 1.3
+    , int-cast
+    , io-streams
+    , mason
+    , mtl
+    , mysql-haskell
+    , safe-exceptions
+    , scientific
+    , text
+    , time
+    , vector
 
   if flag(lenient)
     cpp-options: -DLENIENT
@@ -190,9 +191,9 @@ library pool
   exposed-modules: Pool
   build-depends:
     , BoundedChan
-    , lifted-base        ^>=0.2.3.12
-    , monad-control      ^>=1.0.2.3
-    , transformers-base  ^>=0.4.5.2
+    , lifted-base
+    , monad-control
+    , transformers-base
 
   hs-source-dirs:  pool
 
@@ -207,7 +208,7 @@ test-suite generation
   main-is:        Main.hs
   build-depends:
     , aeson
-    , tasty-hunit  ^>=0.10.0.3
+    , tasty-hunit
 
   hs-source-dirs: test/generation
 
@@ -234,11 +235,11 @@ test-suite via-json
   main-is:        Main.hs
   build-depends:
     , aeson
-    , hedgehog        ^>=1.0.5
+    , hedgehog
     , lifted-base
     , pool
     , scientific
-    , tasty-hedgehog  ^>=1.1.0.0
+    , tasty-hedgehog
     , vector
 
   hs-source-dirs: test/via-json
@@ -265,7 +266,7 @@ test-suite unicode
   main-is:        Main.hs
   build-depends:
     , fmt
-    , split        ^>=0.2.3.4
+    , split
     , tasty-hunit
 
   hs-source-dirs: test/unicode
@@ -320,7 +321,7 @@ test-suite leniency
   type:           exitcode-stdio-1.0
   main-is:        Main.hs
   build-depends:
-    , ieee754      ^>=0.8.0
+    , ieee754
     , tasty-hunit
     , vector
 
