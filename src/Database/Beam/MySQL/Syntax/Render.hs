@@ -178,13 +178,13 @@ renderFrom fs = case fs of
     pure $ src <> hdr
   InnerJoin{} -> do
     (l, r, c) <- renderJoinParts fs.leftArg fs.rightArg fs.condition
-    pure $ l <> " JOIN " <> r <> maybe "" (" ON " <>) c
+    pure $ l <> " JOIN " <> r <> fold c
   LeftJoin{}  -> do
     (l, r, c) <- renderJoinParts fs.leftArg fs.rightArg fs.condition
-    pure $ l <> " LEFT JOIN " <> r <> maybe "" (" ON " <>) c
+    pure $ l <> " LEFT JOIN " <> r <> fold c
   RightJoin{} -> do
     (l, r, c) <- renderJoinParts fs.leftArg fs.rightArg fs.condition
-    pure $ l <> " RIGHT JOIN " <> r <> maybe "" (" ON " <>) c
+    pure $ l <> " RIGHT JOIN " <> r <> fold c
 
 renderJoinParts ::
   MySQLFromSyntax ->
