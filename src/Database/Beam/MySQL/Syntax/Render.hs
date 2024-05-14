@@ -178,13 +178,13 @@ renderFrom fs = case fs of
     pure $ src <> hdr
   InnerJoin{} -> do
     (l, r, c) <- renderJoinParts fs.leftArg fs.rightArg fs.condition
-    pure $ l <> " JOIN " <> r <> fold c
+    pure $ l <> " JOIN " <> r <> maybe "" (" ON " <>) c
   LeftJoin{}  -> do
     (l, r, c) <- renderJoinParts fs.leftArg fs.rightArg fs.condition
-    pure $ l <> " LEFT JOIN " <> r <> fold c
+    pure $ l <> " LEFT JOIN " <> r <> maybe "" (" ON " <>) c
   RightJoin{} -> do
     (l, r, c) <- renderJoinParts fs.leftArg fs.rightArg fs.condition
-    pure $ l <> " RIGHT JOIN " <> r <> fold c
+    pure $ l <> " RIGHT JOIN " <> r <> maybe "" (" ON " <>) c
 
 renderJoinParts ::
   MySQLFromSyntax ->
@@ -205,7 +205,7 @@ renderTableSource = \case
 renderTableName :: MySQLTableNameSyntax -> RenderM Builder
 renderTableName tns = do
   tell . singleton $ tns.name
-  pure $ foldMap textUtf8 tns.schema <> (backtickWrap . textUtf8 $ tns.name)
+  pure $ foldMap (\sn -> backtickWrap (textUtf8 sn) <> "." ) tns.schema <> (backtickWrap . textUtf8 $ tns.name)
 
 renderTableRow :: TableRowExpression -> RenderM Builder
 renderTableRow (TableRowExpression v) = do
