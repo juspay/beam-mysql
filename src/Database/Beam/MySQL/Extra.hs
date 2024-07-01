@@ -223,11 +223,11 @@ insertRowReturning ins (TableRowExpression v) query@(Query inner) = do
       liftIO (dbg textual) >> pure conn
     ReleaseEnv conn -> pure conn
   -- Get the names of all primary key columns in the table.
-  pkColNames <- getPkCols conn ins.tableName.name
+  pkColNames <- getPkCols conn ins.tableName.name ins.tableName.schema
   -- If we don't find anything, abort.
   when (null pkColNames) (noPrimaryKey ins)
   -- Determine if we have an auto-increment column, and if so, what it is
-  mAIColumn <- getAutoIncColumn conn ins.tableName.name
+  mAIColumn <- getAutoIncColumn conn ins.tableName.name ins.tableName.schema
   -- Run the insert
   res <- liftIO . execute_ conn $ query
   case okAffectedRows res of
@@ -323,13 +323,14 @@ getConnection = MySQLM (asks go)
       DebugEnv _ c -> c
       ReleaseEnv c -> c
 
-getPkCols :: MySQLConn -> Text -> MySQLM (Vector Text)
-getPkCols conn nam = do
+getPkCols :: MySQLConn -> Text -> Maybe Text -> MySQLM (Vector Text)
+getPkCols conn nam mbSchemaName = do
   let query = Query $
         "SELECT key_column_usage.column_name " <>
         "FROM information_schema.key_column_usage " <>
-        "WHERE table_schema = schema() " <>
-        "AND constraint_name = 'PRIMARY' " <>
+        "WHERE table_schema = " <>
+        maybe "schema()" (\sn -> encodeUtf8 . fromStrict $ "'" <> sn <> "'") mbSchemaName <>
+        " AND constraint_name = 'PRIMARY' " <>
         "AND table_name = '" <>
         (encodeUtf8 . fromStrict $ nam) <>
         "';"
@@ -343,13 +344,14 @@ getPkCols conn nam = do
       res <- read stream
       pure $ (, (env, stream)) <$> (res >>= (!? 0) >>= extractText)
 
-getAutoIncColumn :: MySQLConn -> Text -> MySQLM (Maybe Text)
-getAutoIncColumn conn nam = do
+getAutoIncColumn :: MySQLConn -> Text -> Maybe Text -> MySQLM (Maybe Text)
+getAutoIncColumn conn nam mbSchemaName = do
   let query = Query $
         "SELECT column_name " <>
         "FROM information_schema.columns " <>
-        "WHERE table_schema = schema() " <>
-        "AND table_name = '" <>
+        "WHERE table_schema = " <>
+        maybe "schema()" (\sn -> encodeUtf8 . fromStrict $ "'" <> sn <> "'") mbSchemaName <>
+        " AND table_name = '" <>
         (encodeUtf8 . fromStrict $ nam) <>
         "' AND extra LIKE 'auto_increment' " <>
         "LIMIT 1;"

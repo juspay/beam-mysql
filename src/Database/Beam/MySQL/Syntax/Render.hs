@@ -205,7 +205,7 @@ renderTableSource = \case
 renderTableName :: MySQLTableNameSyntax -> RenderM Builder
 renderTableName tns = do
   tell . singleton $ tns.name
-  pure $ foldMap textUtf8 tns.schema <> (backtickWrap . textUtf8 $ tns.name)
+  pure $ foldMap (\sn -> backtickWrap (textUtf8 sn) <> "." ) tns.schema <> (backtickWrap . textUtf8 $ tns.name)
 
 renderTableRow :: TableRowExpression -> RenderM Builder
 renderTableRow (TableRowExpression v) = do
