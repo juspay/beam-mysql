@@ -2,21 +2,13 @@
 {-# OPTIONS_GHC -Wno-incomplete-record-updates #-}
 
 {-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE TypeOperators #-}
 
 module Database.Beam.MySQL.Syntax.Select where
 
 import           Data.Text (Text)
 import           Data.Vector (Vector, fromList)
-import           Database.Beam.Backend.SQL (IsSql92AggregationExpressionSyntax (..),
-                                            IsSql92ExpressionSyntax (..),
-                                            IsSql92FromSyntax (..),
-                                            IsSql92GroupingSyntax (..),
-                                            IsSql92OrderingSyntax (..),
-                                            IsSql92ProjectionSyntax (..),
-                                            IsSql92SelectSyntax (..),
-                                            IsSql92SelectTableSyntax (..),
-                                            IsSql92TableNameSyntax (..),
-                                            IsSql92TableSourceSyntax (..),
+import           Database.Beam.Backend.SQL (
                                             IsSql99ConcatExpressionSyntax (..))
 import           Database.Beam.MySQL.Syntax.DataType (MySQLDataTypeSyntax)
 import           Database.Beam.MySQL.Syntax.Misc (MySQLAggregationSetQuantifierSyntax,
@@ -25,6 +17,7 @@ import           Database.Beam.MySQL.Syntax.Misc (MySQLAggregationSetQuantifierS
                                                   MySQLQuantifierSyntax)
 import           Database.Beam.MySQL.Syntax.Value (MySQLValueSyntax)
 import           Prelude hiding (map)
+import Database.Beam.Backend.SQL.SQL92
 
 data MySQLOrderingSyntax =
   AscOrdering MySQLExpressionSyntax |
@@ -519,6 +512,9 @@ instance IsSql92ExpressionSyntax MySQLExpressionSyntax where
     MySQLExpressionSyntax ->
     MySQLExpressionSyntax
   betweenE = Between
+  {-# INLINABLE inSelectE #-}
+  inSelectE :: MySQLExpressionSyntax -> MySQLSelect -> MySQLExpressionSyntax
+  inSelectE = inSelectE
 
 instance IsSql92AggregationExpressionSyntax MySQLExpressionSyntax where
   type Sql92AggregationSetQuantifierSyntax MySQLExpressionSyntax =

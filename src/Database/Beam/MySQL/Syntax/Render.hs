@@ -1,4 +1,5 @@
 {-# LANGUAGE KindSignatures #-}
+{-# LANGUAGE TypeOperators #-}
 
 module Database.Beam.MySQL.Syntax.Render where
 
@@ -491,7 +492,7 @@ renderInsert' ins = do
   let insertBegin = maybe ("INSERT INTO " :: Builder) renderInsertIgnore ins.onConflict
   tableName' <- renderTableName ins.tableName
   insertValues' <- renderInsertValues ins.insertValues
-  onDuplicateKeyUpdate <- maybe (pure "") renderOnDuplicateKeyUpdate ins.onConflict  
+  onDuplicateKeyUpdate <- maybe (pure "") renderOnDuplicateKeyUpdate ins.onConflict
   pure $
     insertBegin <>
     tableName' <>

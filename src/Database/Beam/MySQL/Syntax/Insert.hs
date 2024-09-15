@@ -1,4 +1,5 @@
 {-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE TypeOperators #-}
 
 module Database.Beam.MySQL.Syntax.Insert where
 
@@ -39,7 +40,7 @@ instance IsSql92InsertValuesSyntax MySQLInsertValuesSyntax where
   insertFromSql :: MySQLSelect -> MySQLInsertValuesSyntax
   insertFromSql = InsertFromSQL
 
-data MySQLInsert = InsertStmt 
+data MySQLInsert = InsertStmt
   { tableName    :: {-# UNPACK #-} !MySQLTableNameSyntax
   , columns      :: {-# UNPACK #-} !(Vector Text)
   , insertValues :: MySQLInsertValuesSyntax
@@ -48,7 +49,7 @@ data MySQLInsert = InsertStmt
   deriving stock (Eq, Show)
 
 data MySQLInsertOnConflictTarget = MySQLInsertOnConflictAnyTarget
-data MySQLInsertOnConflictAction 
+data MySQLInsertOnConflictAction
   = IGNORE
   | UPDATE_ON_DUPLICATE_KEY !(Vector FieldUpdate)
   deriving stock (Eq, Show)

@@ -6,6 +6,7 @@
 {-# LANGUAGE Trustworthy         #-}
 {-# LANGUAGE TypeFamilies        #-}
 {-# LANGUAGE RankNTypes          #-}
+{-# LANGUAGE TypeOperators #-}
 
 module Database.Beam.MySQL.Connection where
 
@@ -318,7 +319,7 @@ instance Beam.BeamHasInsertOnConflict MySQL where
     -> SqlInsert MySQL table
   insertOnConflict (DatabaseEntity dt) vals _ action = case vals of
     SqlInsertValuesEmpty -> SqlInsertNoRows
-    SqlInsertValues vs   -> SqlInsert (dbTableSettings dt) $ 
+    SqlInsertValues vs   -> SqlInsert (dbTableSettings dt) $
       let getFieldName
             :: forall a
             .  Columnar' (TableField table) a
@@ -334,7 +335,7 @@ instance Beam.BeamHasInsertOnConflict MySQL where
   conflictingFieldsWhere _ _ = error "MySQL does not support CONFLICT_TARGETS with WHERE"
 
   onConflictDoNothing = MySQLConflictAction (const IGNORE)
-  onConflictUpdateSet makeAssignments = 
+  onConflictUpdateSet makeAssignments =
     MySQLConflictAction $ \table ->
       let QAssignment assignments = makeAssignments table fieldsAliased
           fieldsAliased = changeBeamRep (\(Columnar' (QField _ _ nm)) -> Columnar' (QExpr (\_ -> fieldE (qualifiedField "new_values" nm)))) table
