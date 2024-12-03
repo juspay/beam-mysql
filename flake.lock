@@ -11,17 +11,17 @@
         ]
       },
       "locked": {
-        "lastModified": 1693307537,
-        "narHash": "sha256-BIq3ZjZQWQ0w3zWA19zGBggiVVfnOzR5d4b7De0oVZY=",
-        "owner": "arjunkathuria",
+        "lastModified": 1732781696,
+        "narHash": "sha256-nvtDf2BIAuvTN7S0A8I/HWQt5l5duI4euE7uVKdv3eE=",
+        "owner": "juspay",
         "repo": "beam",
-        "rev": "06bcc50997fdcfb87125bed252e888e5dd1e6d9c",
+        "rev": "b5f14b640110bcfab6bc86f07f864516b2d7ffd8",
         "type": "github"
       },
       "original": {
-        "owner": "arjunkathuria",
-        "ref": "GHC-927-Upgrade",
+        "owner": "juspay",
         "repo": "beam",
+        "rev": "b5f14b640110bcfab6bc86f07f864516b2d7ffd8",
         "type": "github"
       }
     },

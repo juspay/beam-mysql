@@ -13,7 +13,7 @@
     mysql-haskell.inputs.haskell-flake.follows = "haskell-flake";
 
     ## Use Juspay upstream after PR merged - https://github.com/juspay/beam/pull/21
-    beam.url = "github:arjunkathuria/beam/GHC-927-Upgrade";
+    beam.url = "github:juspay/beam/b5f14b640110bcfab6bc86f07f864516b2d7ffd8";
     beam.inputs.haskell-flake.follows = "haskell-flake";
     beam.inputs.nixpkgs.follows = "nixpkgs";
 
