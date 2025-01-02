@@ -558,7 +558,8 @@ renderDelete' del = do
   pure $
     "DELETE FROM " <>
     tableName' <>
-    foldMap (" WHERE " <>) wher'
+    foldMap (" WHERE " <>) wher' <>
+    maybe mempty (\l -> " LIMIT " <> textUtf8 (pack $ show l)) del.limit
 
 wrap :: (Semigroup s) => s -> s -> s -> s
 wrap l r v = l <> v <> r
