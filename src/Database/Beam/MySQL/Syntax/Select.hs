@@ -166,7 +166,8 @@ data PrefOp =
   TLower |
   TUpper |
   TTrim |
-  NAbs
+  NAbs |
+  TJSONValid
   deriving stock (Eq, Show)
 
 data PostOp =
@@ -240,6 +241,10 @@ data MySQLExpressionSyntax =
   Extract {
     field :: !MySQLExtractFieldSyntax,
     expr  :: MySQLExpressionSyntax
+    } |
+  JSONExtract {
+    expr :: MySQLExpressionSyntax,
+    key  :: MySQLExpressionSyntax
     } |
   CurrentTimestamp |
   Default |
@@ -510,6 +515,14 @@ instance IsSql92ExpressionSyntax MySQLExpressionSyntax where
     MySQLExpressionSyntax ->
     MySQLExpressionSyntax
   extractE = Extract
+  {-# INLINABLE jsonValidE #-}
+  jsonValidE ::
+    MySQLExpressionSyntax ->
+    MySQLExpressionSyntax
+  jsonValidE = PrefixOperation TJSONValid
+  {-# INLINABLE jsonExtractE #-}
+  jsonExtractE :: MySQLExpressionSyntax -> MySQLExpressionSyntax -> MySQLExpressionSyntax
+  jsonExtractE = JSONExtract
   {-# INLINABLE existsE #-}
   existsE :: MySQLSelect -> MySQLExpressionSyntax
   existsE = Exists
