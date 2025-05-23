@@ -291,6 +291,7 @@ analyzeExpr ins e = case go e of
       Cast{} -> go e'.expr
       -- Field extractions from pure expressions are pure.
       Extract{} -> go e'.expr
+      JSONExtract{} -> go e'.expr <> go e'.key
       -- CURRENT_TIMESTAMP is pure within a transaction, which we assume we're
       -- in, as runInsertRowReturning is unsafe outside one.
       CurrentTimestamp -> Pure
