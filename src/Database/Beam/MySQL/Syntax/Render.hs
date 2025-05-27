@@ -298,6 +298,12 @@ renderExpr es = case es of
     pure $
       "EXTRACT" <>
       bracketWrap (field' <> " FROM " <> e')
+  JSONExtract{} -> do
+    field' <- renderExpr es.expr
+    e' <- renderExpr es.key
+    pure $
+      "JSON_EXTRACT" <>
+      bracketWrap (field' <> ", " <> e')
   CurrentTimestamp -> pure "CURRENT_TIMESTAMP"
   Default -> pure "DEFAULT"
   In{} -> do
@@ -412,6 +418,9 @@ renderPrefOp = pure . \case
   TUpper       -> "UPPER"
   TTrim        -> "TRIM"
   NAbs         -> "ABS"
+  TJSONValid   -> "JSON_VALID"
+  
+  
 
 renderCompOp :: CompOp -> RenderM Builder
 renderCompOp = pure . \case
