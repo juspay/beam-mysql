@@ -167,7 +167,8 @@ data PrefOp =
   TUpper |
   TTrim |
   NAbs |
-  TJSONValid
+  TJSONValid |
+  TJSONUnquote
   deriving stock (Eq, Show)
 
 data PostOp =
@@ -520,6 +521,11 @@ instance IsSql92ExpressionSyntax MySQLExpressionSyntax where
     MySQLExpressionSyntax ->
     MySQLExpressionSyntax
   jsonValidE = PrefixOperation TJSONValid
+  {-# INLINABLE jsonUnquoteE #-}
+  jsonUnquoteE ::
+    MySQLExpressionSyntax ->
+    MySQLExpressionSyntax
+  jsonUnquoteE = PrefixOperation TJSONUnquote
   {-# INLINABLE jsonExtractE #-}
   jsonExtractE :: MySQLExpressionSyntax -> MySQLExpressionSyntax -> MySQLExpressionSyntax
   jsonExtractE = JSONExtract
