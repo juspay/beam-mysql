@@ -419,8 +419,7 @@ renderPrefOp = pure . \case
   TTrim        -> "TRIM"
   NAbs         -> "ABS"
   TJSONValid   -> "JSON_VALID"
-  
-  
+  TJSONUnquote -> "JSON_UNQUOTE"
 
 renderCompOp :: CompOp -> RenderM Builder
 renderCompOp = pure . \case
