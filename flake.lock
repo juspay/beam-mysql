@@ -11,14 +11,18 @@
         ]
       },
       "locked": {
-        "lastModified": 1767955745,
-        "narHash": "sha256-J1atr1+P7TFjY3rFTtA0VBwIqVDZYtuPaEuio2d+qyQ=",
-        "path": "/home/kiransai-abhishek/repos/beam",
-        "type": "path"
+        "lastModified": 1770120645,
+        "narHash": "sha256-osmMmmRyv5dc9CLHuxiM0NZcwJBRr5ZX8Teh+AWL6a4=",
+        "owner": "infinitumkiran",
+        "repo": "beam",
+        "rev": "e3396ca83e766a1fad2eb5d46f1bbff2619f1694",
+        "type": "github"
       },
       "original": {
-        "path": "/home/kiransai-abhishek/repos/beam",
-        "type": "path"
+        "owner": "infinitumkiran",
+        "ref": "ghc98",
+        "repo": "beam",
+        "type": "github"
       }
     },
     "bytestring-lexing": {
@@ -42,11 +46,11 @@
         "nixpkgs-lib": "nixpkgs-lib"
       },
       "locked": {
-        "lastModified": 1767609335,
-        "narHash": "sha256-feveD98mQpptwrAEggBQKJTYbvwwglSbOv53uCfH9PY=",
+        "lastModified": 1769996383,
+        "narHash": "sha256-AnYjnFWgS49RlqX7LrC4uA+sCCDBj0Ry/WOJ5XWAsa0=",
         "owner": "hercules-ci",
         "repo": "flake-parts",
-        "rev": "250481aafeb741edfe23d29195671c19b36b6dca",
+        "rev": "57928607ea566b5db3ad13af0e57e921e6b12381",
         "type": "github"
       },
       "original": {
@@ -148,18 +152,23 @@
         "nixpkgs": [
           "nixpkgs"
         ],
+        "ram": "ram",
         "tcp-streams": "tcp-streams",
         "word24": "word24"
       },
       "locked": {
-        "lastModified": 1767952214,
-        "narHash": "sha256-/Lnt5DDBoKGFU09c/c21SZVxSq9WT4qmrj02SERf7ME=",
-        "path": "/home/kiransai-abhishek/repos/mysql-haskell",
-        "type": "path"
+        "lastModified": 1775124748,
+        "narHash": "sha256-xPzm5UX4Z9IdnXoWAxQbzHDAyALFyuH9u7nuItRHWIc=",
+        "owner": "infinitumkiran",
+        "repo": "mysql-haskell",
+        "rev": "ecb8aae4ae2139ac6e92a3b7cbea4663eec3ca21",
+        "type": "github"
       },
       "original": {
-        "path": "/home/kiransai-abhishek/repos/mysql-haskell",
-        "type": "path"
+        "owner": "infinitumkiran",
+        "ref": "ghc984",
+        "repo": "mysql-haskell",
+        "type": "github"
       }
     },
     "nixpkgs": {
@@ -180,11 +189,11 @@
     },
     "nixpkgs-lib": {
       "locked": {
-        "lastModified": 1765674936,
-        "narHash": "sha256-k00uTP4JNfmejrCLJOwdObYC9jHRrr/5M/a/8L2EIdo=",
+        "lastModified": 1769909678,
+        "narHash": "sha256-cBEymOf4/o3FD5AZnzC3J9hLbiZ+QDT/KDuyHXVJOpM=",
         "owner": "nix-community",
         "repo": "nixpkgs.lib",
-        "rev": "2075416fcb47225d9b68ac469a5c4801a9c4dd85",
+        "rev": "72716169fe93074c333e8d0173151350670b824c",
         "type": "github"
       },
       "original": {
@@ -254,6 +263,22 @@
         "type": "github"
       }
     },
+    "ram": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1774739967,
+        "narHash": "sha256-eMjjn48rZ70Cedw45YB2LbexrXPToGxYsmtoYHHs7Jw=",
+        "owner": "jappeace",
+        "repo": "ram",
+        "rev": "fb16285c2fc303894575757786cf8f87d183b88f",
+        "type": "github"
+      },
+      "original": {
+        "owner": "jappeace",
+        "repo": "ram",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "beam": "beam",
@@ -271,14 +296,19 @@
         "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "lastModified": 1767949343,
-        "narHash": "sha256-gysyKsAkehMANHbsq9twE1khIV/s/4twIfnSFzQrWW8=",
-        "path": "/home/kiransai-abhishek/repos/tcp-streams",
-        "type": "path"
+        "lastModified": 1769786788,
+        "narHash": "sha256-0Fzg6TAV2+nToxFQxPfVi3AtJ3DYViXaabynXWrXwU0=",
+        "ref": "ghc984",
+        "rev": "b4a535c013714cdad12d83772ffc7634deff97c1",
+        "revCount": 63,
+        "type": "git",
+        "url": "https://github.com/infinitumkiran/tcp-streams"
       },
       "original": {
-        "path": "/home/kiransai-abhishek/repos/tcp-streams",
-        "type": "path"
+        "ref": "ghc984",
+        "rev": "b4a535c013714cdad12d83772ffc7634deff97c1",
+        "type": "git",
+        "url": "https://github.com/infinitumkiran/tcp-streams"
       }
     },
     "word24": {

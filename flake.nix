@@ -8,12 +8,12 @@
     bytestring-lexing.flake = false;
 
     ## Use Juspay upstream after PR merged here https://github.com/juspay/mysql-haskell/pull/5
-    mysql-haskell.url = "path:/home/kiransai-abhishek/repos/mysql-haskell";
+    mysql-haskell.url = "github:infinitumkiran/mysql-haskell?ref=ghc984";
     mysql-haskell.inputs.nixpkgs.follows = "nixpkgs";
     mysql-haskell.inputs.haskell-flake.follows = "haskell-flake";
 
     ## Use Juspay upstream after PR merged - https://github.com/juspay/beam/pull/21
-    beam.url = "path:/home/kiransai-abhishek/repos/beam";
+    beam.url = "github:infinitumkiran/beam?ref=ghc98";
     beam.inputs.haskell-flake.follows = "haskell-flake";
     beam.inputs.nixpkgs.follows = "nixpkgs";
 
