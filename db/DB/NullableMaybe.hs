@@ -3,6 +3,8 @@
 
 module DB.NullableMaybe (NullableMaybeT(..)) where
 
+import qualified GHC.Records
+import qualified GHC.Records.Extra
 import           Data.Functor.Identity (Identity)
 import           Data.Int (Int64)
 import           Data.Kind (Type)

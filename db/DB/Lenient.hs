@@ -2,6 +2,8 @@
 
 module DB.Lenient (LenientT(..)) where
 
+import qualified GHC.Records
+import qualified GHC.Records.Extra
 import           Data.Int (Int16, Int32, Int64, Int8)
 import           Data.Kind (Type)
 import           Data.Text (Text)

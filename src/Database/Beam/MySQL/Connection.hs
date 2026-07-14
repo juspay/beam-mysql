@@ -9,6 +9,8 @@
 
 module Database.Beam.MySQL.Connection where
 
+import qualified GHC.Records
+import qualified GHC.Records.Extra
 import           Control.Exception.Safe (Exception, Handler (Handler),
                                          MonadCatch, MonadMask, MonadThrow,
                                          bracket, catchAny, catches, throw)

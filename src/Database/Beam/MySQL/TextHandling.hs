@@ -41,6 +41,8 @@ module Database.Beam.MySQL.TextHandling
   )
 where
 
+import qualified GHC.Records
+import qualified GHC.Records.Extra
 import           Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as Char8
 import           Data.Text (Text, unpack)

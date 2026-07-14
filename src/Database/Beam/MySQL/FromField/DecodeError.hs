@@ -1,5 +1,7 @@
 module Database.Beam.MySQL.FromField.DecodeError where
 
+import qualified GHC.Records
+import qualified GHC.Records.Extra
 import           Data.Kind (Type)
 import           Type.Reflection (TyCon)
 

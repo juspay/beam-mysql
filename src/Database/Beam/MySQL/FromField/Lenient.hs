@@ -3,6 +3,8 @@
 
 module Database.Beam.MySQL.FromField.Lenient where
 
+import qualified GHC.Records
+import qualified GHC.Records.Extra
 import           Data.Aeson (FromJSON, decodeStrict)
 import           Data.ByteString (ByteString)
 import           Data.FakeUTC (FakeUTC)

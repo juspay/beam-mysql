@@ -5,6 +5,8 @@ module DB (
   testDB
   ) where
 
+import qualified GHC.Records
+import qualified GHC.Records.Extra
 import           DB.BadSchema (BadSchemaT)
 import qualified DB.BadSchema as BadSchema
 import           DB.BadSchemaBig (BadSchemaBigT)

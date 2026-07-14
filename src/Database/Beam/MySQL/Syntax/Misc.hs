@@ -4,6 +4,8 @@
 
 module Database.Beam.MySQL.Syntax.Misc where
 
+import qualified GHC.Records
+import qualified GHC.Records.Extra
 import           Data.Text (Text)
 import           Database.Beam.Backend.SQL (IsSql92AggregationSetQuantifierSyntax (..),
                                             IsSql92ExtractFieldSyntax (..),

@@ -4,6 +4,8 @@
 
 module Main (main) where
 
+import qualified GHC.Records
+import qualified GHC.Records.Extra
 import           Data.Aeson (FromJSON (parseJSON), ToJSON (toJSON), withText)
 import           Data.Aeson.Types (Parser)
 import           Data.Functor.Identity (Identity)

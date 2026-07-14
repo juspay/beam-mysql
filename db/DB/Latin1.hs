@@ -2,6 +2,8 @@
 
 module DB.Latin1 (Latin1T(..)) where
 
+import qualified GHC.Records
+import qualified GHC.Records.Extra
 import           Data.Int (Int64)
 import           Data.Kind (Type)
 import           Data.Text (Text)

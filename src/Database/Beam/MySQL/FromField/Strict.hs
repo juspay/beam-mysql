@@ -3,6 +3,8 @@
 
 module Database.Beam.MySQL.FromField.Strict where
 
+import qualified GHC.Records
+import qualified GHC.Records.Extra
 import           Data.Aeson (Value, FromJSON(..), decodeStrict)
 import           Data.Bits (Bits, toIntegralSized, zeroBits)
 import           Data.ByteString (ByteString)

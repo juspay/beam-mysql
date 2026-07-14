@@ -2,6 +2,8 @@
 
 module Main (main) where
 
+import qualified GHC.Records
+import qualified GHC.Records.Extra
 import           Control.Exception.Safe (bracket, finally)
 import           DB (testDB, unicode)
 import           DB.Unicode (UnicodeT (UnicodeT))
