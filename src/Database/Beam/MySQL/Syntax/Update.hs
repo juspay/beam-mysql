@@ -2,6 +2,8 @@
 
 module Database.Beam.MySQL.Syntax.Update where
 
+import qualified GHC.Records
+import qualified GHC.Records.Extra
 import           Data.Vector (Vector, fromList)
 import           Database.Beam.Backend.SQL (IsSql92UpdateSyntax (..))
 import           Database.Beam.MySQL.Syntax.Misc (MySQLFieldNameSyntax)

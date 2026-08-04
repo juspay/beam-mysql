@@ -31,6 +31,7 @@ common common-lang
     -Wincomplete-uni-patterns -Wredundant-constraints -Werror
     -fplugin=RecordDotPreprocessor
     -Wwarn=ambiguous-fields
+    -Wno-unused-imports -Wno-error=unused-imports
 
   build-depends:
     , base                     <5
@@ -62,6 +63,7 @@ common common-lang
     TypeFamilies
     TypeSynonymInstances
     UndecidableInstances
+    TypeOperators
 
   default-language:   Haskell2010
 

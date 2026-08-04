@@ -8,6 +8,8 @@ module Pool (
   withResource'
   ) where
 
+import qualified GHC.Records
+import qualified GHC.Records.Extra
 import           Control.Concurrent.BoundedChan (BoundedChan, newBoundedChan,
                                                  readChan, writeChan)
 import qualified Control.Exception.Lifted as LB

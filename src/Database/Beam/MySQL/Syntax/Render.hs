@@ -2,6 +2,8 @@
 
 module Database.Beam.MySQL.Syntax.Render where
 
+import qualified GHC.Records
+import qualified GHC.Records.Extra
 import           Control.Monad.Except (MonadError (throwError))
 import           Control.Monad.Writer.Strict (MonadWriter (tell), WriterT,
                                               runWriterT)

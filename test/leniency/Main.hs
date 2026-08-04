@@ -1,5 +1,7 @@
 module Main (main) where
 
+import qualified GHC.Records
+import qualified GHC.Records.Extra
 import           Control.Exception.Safe (bracket)
 import           DB (lenient, testDB)
 import           DB.Lenient (LenientT)

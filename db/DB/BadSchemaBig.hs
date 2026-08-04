@@ -2,6 +2,8 @@
 
 module DB.BadSchemaBig (BadSchemaBigT(..)) where
 
+import qualified GHC.Records
+import qualified GHC.Records.Extra
 import           Data.Int (Int64)
 import           Data.Kind (Type)
 import           Data.Text (Text)

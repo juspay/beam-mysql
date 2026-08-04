@@ -4,6 +4,8 @@
 
 module Database.Beam.MySQL.Syntax.Select where
 
+import qualified GHC.Records
+import qualified GHC.Records.Extra
 import           Data.Text (Text)
 import           Data.Vector (Vector, fromList)
 import           Database.Beam.Backend.SQL (IsSql92AggregationExpressionSyntax (..),

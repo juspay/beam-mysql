@@ -2,6 +2,8 @@
 
 module Main (main) where
 
+import qualified GHC.Records
+import qualified GHC.Records.Extra
 import           Control.Exception.Safe (bracket, finally)
 import           DB (latin1, testDB)
 import           DB.Latin1 (Latin1T (Latin1T))

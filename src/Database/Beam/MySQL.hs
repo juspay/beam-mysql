@@ -33,6 +33,8 @@ module Database.Beam.MySQL
   parsingMethod
 ) where
 
+import qualified GHC.Records
+import qualified GHC.Records.Extra
 import           Data.FakeUTC (FakeUTC (FakeUTC))
 import           Data.ViaJson (ViaJson (ViaJson))
 import           Database.Beam.MySQL.Connection

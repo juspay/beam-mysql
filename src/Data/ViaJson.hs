@@ -3,6 +3,8 @@
 
 module Data.ViaJson where
 
+import qualified GHC.Records
+import qualified GHC.Records.Extra
 import           Data.Aeson (FromJSON, ToJSON)
 import           Data.Hashable (Hashable)
 import           Data.Kind (Type)

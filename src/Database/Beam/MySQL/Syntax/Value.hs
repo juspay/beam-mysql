@@ -1,5 +1,7 @@
 module Database.Beam.MySQL.Syntax.Value where
 
+import qualified GHC.Records
+import qualified GHC.Records.Extra
 import           Data.Aeson (ToJSON (toJSON), Value)
 import           Data.ByteString (ByteString)
 import           Data.FakeUTC (FakeUTC (FakeUTC))

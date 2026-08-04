@@ -1,6 +1,8 @@
 {-#LANGUAGE NamedFieldPuns #-}
 module Main (main) where
 
+import qualified GHC.Records
+import qualified GHC.Records.Extra
 import           Control.Concurrent (getNumCapabilities)
 import           Control.Exception.Safe (bracket, try)
 import           DB (nullable, nullableMaybe, testDB)

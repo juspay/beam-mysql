@@ -2,6 +2,8 @@
 
 module Database.Beam.MySQL.Utils where
 
+import qualified GHC.Records
+import qualified GHC.Records.Extra
 import           Data.Text (Text)
 import           Database.MySQL.Base (FieldType, mySQLTypeBit, mySQLTypeBlob,
                                       mySQLTypeDate, mySQLTypeDateTime,

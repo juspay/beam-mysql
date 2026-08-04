@@ -2,6 +2,8 @@
 
 module Database.Beam.MySQL.Syntax.Delete where
 
+import qualified GHC.Records
+import qualified GHC.Records.Extra
 import           Data.Text (Text)
 import           Database.Beam.Backend.SQL (IsSql92DeleteSyntax (..))
 import           Database.Beam.MySQL.Syntax.Select (MySQLExpressionSyntax,

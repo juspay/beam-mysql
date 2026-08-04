@@ -6,6 +6,8 @@
 
 module Database.Beam.MySQL.Extra where
 
+import qualified GHC.Records
+import qualified GHC.Records.Extra
 import           Control.Exception.Safe (bracket, throw)
 import           Control.Monad (when)
 import           Control.Monad.IO.Class (liftIO)

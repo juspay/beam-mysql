@@ -2,6 +2,8 @@
 
 module Database.Beam.MySQL.Syntax where
 
+import qualified GHC.Records
+import qualified GHC.Records.Extra
 import           Database.Beam.Backend.SQL (IsSql92Syntax (..))
 import           Database.Beam.MySQL.Syntax.Delete (MySQLDelete)
 import           Database.Beam.MySQL.Syntax.Insert (MySQLInsert)

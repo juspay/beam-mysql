@@ -2,6 +2,8 @@
 
 module Main (main) where
 
+import qualified GHC.Records
+import qualified GHC.Records.Extra
 import           Control.Concurrent (getNumCapabilities)
 import qualified Control.Exception.Lifted as LB
 import           Control.Exception.Safe (IOException, bracket)

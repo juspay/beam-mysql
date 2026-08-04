@@ -1,5 +1,7 @@
 module Data.FakeUTC where
 
+import qualified GHC.Records
+import qualified GHC.Records.Extra
 import           Data.Time (UTCTime)
 import           Type.Reflection (Typeable)
 
